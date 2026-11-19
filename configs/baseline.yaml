@@ -1,0 +1,142 @@
+# 检查项基线（取证与敞口计算的唯一检查项来源）
+#
+# 依据：docs/00-总体框架.md §5、.codeartsdoer/plans/t0-2-config/design.md §2.2 C-CONFIG@1
+# 权重映射采用 CVSS v3.1 严重度分级（Critical/High/Medium/Low）。
+# 阈值与默认置信度均为未校准初值：provisional: true，由 T2-1 用锚点集校准后修订。
+# 数据源只登记外链，不内置数据集（第三方数据集有各自许可，禁止随仓库分发）。
+
+meta:
+  version: 1
+  provisional: true
+  calibration_owner: "队员 B"
+  calibration_task: "T2-1（锚点集校准）"
+  weight_source: "CVSS v3.1 严重度分级 → 归一化权重"
+  thresholds_source: "未校准初值；禁止直接写入材料指标"
+
+# ---- 严重度 → 归一化权重 ----
+weight_mapping:
+  Critical: 1.0
+  High: 0.8
+  Medium: 0.6
+  Low: 0.3
+
+# ---- 三态阈值：敞口分 <= pass_max 放行；<= conditional_max 条件放行；否则拒入 ----
+verdict_thresholds:
+  pass_max: 0.2
+  conditional_max: 0.6
+
+# ---- 各证据等级的默认置信度（与 configs/judgement.yaml 的 E1/E2/E3 对齐）----
+default_confidence:
+  E1: 0.9
+  E2: 0.7
+  E3: 0.5
+
+# ---- 判定后策略基线的默认口径 ----
+policy:
+  default_granularity: fqdn
+  default_rule_format: acl
+  asn_fallback_allowed: true
+  asn_fallback_must_label: true
+  require_rollback_ref: true
+  note: >
+    条件放行时按 fqdn 粒度下发 ACL；域名不可定位时回退 ASN，
+    必须在策略与报告中显式标注 asn-fallback 并保留回滚引用
+
+# ---- 开源数据源外链（2026-11-19 联网核实；不内置数据集）----
+data_sources:
+  - name: DefaultCreds-cheat-sheet
+    url: "https://github.com/ihebski/DefaultCreds-cheat-sheet"
+    purpose: >
+      默认口令数据集：3,711 条 / 1,398 个产品厂商 / 1,680 个唯一密码；
+      上游来源含 SecLists、RouterSploit、changeme；引用 OWASP WSTG-ATHN-02
+    license_note: "上游声明仅供教育用途，禁止随仓库分发，仅外链引用"
+  - name: RouterSploit
+    url: "https://github.com/threat9/routersploit"
+    purpose: "嵌入式设备利用框架（BSD）：exploits / creds / scanners 模块分类，作为检查项分类依据"
+  - name: abuse.ch
+    url: "https://abuse.ch/"
+    purpose: "出向外联对照的公开威胁情报（恶意 URL / C2 地址列表）"
+  - name: CVSS v3.1 规范
+    url: "https://www.first.org/cvss/v3-1/specification-document"
+    purpose: "严重度分级与权重映射依据"
+  - name: NVD
+    url: "https://nvd.nist.gov/"
+    purpose: "CVE/CVSS 查询与漏洞核对"
+  - name: RFC 8520 MUD
+    url: "https://www.rfc-editor.org/rfc/rfc8520"
+    purpose: "策略文件格式（Manufacturer Usage Description）"
+  - name: FirmAE
+    url: "https://github.com/pr0v3rbs/FirmAE"
+    purpose: "影子设备仿真与固件样本来源"
+  - name: OpenWrt 固件下载
+    url: "https://downloads.openwrt.org/"
+    purpose: "公开发布的可复现固件样本"
+
+# ---- 三类 9 项检查项 ----
+# 每项字段：code / category / name / severity / weight / source
+checks:
+  # CRED：默认口令
+  - code: CRED_DEFAULT_ADMIN_WEB
+    category: CRED
+    name: "Web 管理界面默认口令可登录"
+    severity: Critical
+    weight: 1.0
+    source: "DefaultCreds-cheat-sheet（3,711 条）+ OWASP WSTG-ATHN-02 默认凭据测试方法"
+
+  - code: CRED_DEFAULT_SERVICE_LOGIN
+    category: CRED
+    name: "Telnet/SSH 服务默认凭据可登录"
+    severity: Critical
+    weight: 1.0
+    source: "RouterSploit creds 模块 + DefaultCreds-cheat-sheet"
+
+  - code: CRED_HARDCODED_SECRET
+    category: CRED
+    name: "固件内硬编码口令/密钥文件"
+    severity: High
+    weight: 0.8
+    source: "固件解包静态检索（影子设备内复核）"
+
+  # UNAUTH：未授权接口
+  - code: UNAUTH_MGMT_ENDPOINT
+    category: UNAUTH
+    name: "未认证访问管理接口（goform/cgi 等）"
+    severity: Critical
+    weight: 1.0
+    source: "RouterSploit scanners 模块 + NVD 公开未授权访问漏洞"
+
+  - code: UNAUTH_COMMAND_EXEC
+    category: UNAUTH
+    name: "未授权命令注入/诊断接口执行"
+    severity: Critical
+    weight: 1.0
+    source: "NVD / Exploit-DB 公开命令注入漏洞"
+
+  - code: UNAUTH_INFO_DISCLOSURE
+    category: UNAUTH
+    name: "未授权读取设备信息/配置文件"
+    severity: Medium
+    weight: 0.6
+    source: "NVD 公开信息披露类漏洞"
+
+  # EGRESS：出向外联
+  - code: EGRESS_FIXED_CLOUD_ENDPOINT
+    category: EGRESS
+    name: "硬编码云平台/厂商服务端外联地址"
+    severity: Medium
+    weight: 0.6
+    source: "固件解包静态检索（域名、URL、证书）"
+
+  - code: EGRESS_PLAINTEXT_CHANNEL
+    category: EGRESS
+    name: "外联走明文或无证书校验的通道"
+    severity: High
+    weight: 0.8
+    source: "影子设备抓包（隔离仿真环境）"
+
+  - code: EGRESS_UNREGISTERED_THIRD_PARTY
+    category: EGRESS
+    name: "未登记的第三方域名/CDN 外联"
+    severity: Low
+    weight: 0.3
+    source: "影子设备抓包对照厂商域名清单 + abuse.ch 公开情报"
