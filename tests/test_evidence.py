@@ -21,10 +21,9 @@ def _build_rootfs(root: Path) -> None:
     _write(root / "etc/passwd", "root:x:0:0:root:/root:/bin/sh\nadmin:x:0:0:Admin:/:/bin/sh\n")
     _write(root / "etc/shadow", "root:$1$abc$defghijklmnopqrstuv:19000:0:99999:7:::\n")
     _write(root / "etc/httpd.conf", "secret=abc123\n")
-    _write(root / "webroot/config.cfg", 'password="admin123"\n')
+    _write(root / "webroot/config.cfg", 'password="admin123"\nurl="https://cloud.vendor.example/api"\n')
     _write(root / "webroot/default.cfg", "usb.ftp.pwd=admin\nsys.baseuserpass=admin\n")
     _write(root / "webroot/lang/cn/translate.json", '{"password": "密码"}\n')
-    _write(root / "webroot/js/main.js", 'var u = "https://cloud.vendor.example/api";\n')
     (root / "usr/sbin").mkdir(parents=True, exist_ok=True)
     binary = (
         b"\x7fELF"
@@ -75,7 +74,7 @@ def test_collect_evidence_covers_three_categories(tmp_path: Path) -> None:
     # 同一 host 只报一条；文本证据优先于二进制。
     egress = [item for item in evidence if item.check_code == "EGRESS_FIXED_CLOUD_ENDPOINT"]
     assert len(egress) == 1
-    assert egress[0].raw_ref == "webroot/js/main.js:1"
+    assert egress[0].raw_ref == "webroot/config.cfg:2"
 
     # 口令值不得进入 detail/raw_ref。
     assert all("admin123" not in item.detail for item in evidence)

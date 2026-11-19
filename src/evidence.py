@@ -139,6 +139,7 @@ _SKIP_HOSTS = frozenset(
         "purl.org",
         "python.org",
         "reasyui.com",
+        "redis.io",
         "schemas.xmlsoap.org",
         "sizzlejs.com",
         "steamdev.com",
@@ -148,6 +149,7 @@ _SKIP_HOSTS = frozenset(
         "www.detectmobilebrowser.com",
         "www.dns-sd.org",
         "www.gnu.org",
+        "www.highcharts.com",
         "www.ietf.org",
         "www.java.com",
         "www.johnculviner.com",
@@ -163,6 +165,9 @@ _SKIP_HOSTS = frozenset(
         "www.w3.org",
         "yuiblog.com",
         "zlib.net",
+        "antirez.com",
+        "code.highcharts.com",
+        "highcharts.com",
     }
 )
 _SKIP_HOST_SUFFIXES = (
@@ -280,6 +285,13 @@ def _is_library_path(rel: Path) -> bool:
     if any(part.lower() in _LIBRARY_PARTS for part in rel.parts):
         return True
     return rel.name.lower() in _LIBRARY_NAMES
+
+
+def _is_egress_text(rel: Path) -> bool:
+    """外联证据优先看配置/页面；JS 里的库文档链接噪声太大，单独排除。"""
+    if not _is_config_text(rel) or _is_library_path(rel):
+        return False
+    return rel.suffix.lower() != ".js"
 
 
 def _credential_check_code(key: str, rel: Path) -> str:
@@ -584,7 +596,7 @@ def _scan_text_egress(root: Path, seen_hosts: set[str]) -> list[_Finding]:
     findings: list[_Finding] = []
     for path in _iter_files(root):
         rel = path.relative_to(root)
-        if not _is_config_text(rel) or _is_library_path(rel):
+        if not _is_egress_text(rel):
             continue
         text = _read_text(path)
         if text is None or _is_rule_database(text):
