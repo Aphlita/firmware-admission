@@ -1,0 +1,36 @@
+{
+  "firmware": {
+    "id": "fw-sample-0001",
+    "vendor": "sample-vendor",
+    "model": "sample-model",
+    "version": "0.0.0-sample",
+    "sha256": "TODO(measure): 待实测固件哈希",
+    "source_url": "file:///data/sample/firmware.bin",
+    "family": "sample-family"
+  },
+  "evidence": {
+    "id": "ev-sample-0001",
+    "firmware_id": "fw-sample-0001",
+    "check_code": "SAMPLE_CHECK",
+    "level": "E1",
+    "confidence": 0.9,
+    "raw_ref": "materials/raw/sample-evidence.txt（占位，未实测）",
+    "detail": "样例占位，未做实测"
+  },
+  "decision": {
+    "firmware_id": "fw-sample-0001",
+    "verdict": "conditional",
+    "confidence": 0.6,
+    "reasons": ["样例占位：未做实测"],
+    "evidence_ids": ["ev-sample-0001"],
+    "exposure": null
+  },
+  "policy": {
+    "firmware_id": "fw-sample-0001",
+    "granularity": "vendor-group",
+    "rule_format": "acl",
+    "rules": ["样例占位规则"],
+    "asn_fallback": true,
+    "rollback_ref": null
+  }
+}

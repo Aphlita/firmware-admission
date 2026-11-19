@@ -1,0 +1,37 @@
+# 锚点库（公开固件 + 公开漏洞 + 版本可对）
+
+# 用途：判定正确率只在锚点集上计算。锚点 < 3 个时，该指标作废，改“定向验证”。
+# 填写要求：固件必须公开可下载；版本必须与公告一致；必须写出处链接。
+
+anchors:
+  - id: A1
+    vendor: Tenda
+    model: "O4 V3.0"
+    firmware: "V1.0.0.19(6074)"
+    download: "https://www.tendacn.com/gr/material/show/858100503027781"
+    known_issues:
+      - "root/Fireitup 默认凭据，/goform/telnet 可开启 telnet"
+      - "CVE：/goform/setMacFilterList 缓冲区溢出"
+    evidence_level: E1
+    verified: true
+    notes: "公开固件可下载；默认凭据有大量公开记录；型号有 CVE"
+
+  - id: A2
+    vendor: TBD
+    model: TBD
+    firmware: TBD
+    download: TBD
+    known_issues: []
+    evidence_level: TBD
+    verified: false
+    notes: "待补：优先路由器，公告需写明硬件版本与固件版本"
+
+  - id: A3
+    vendor: TBD
+    model: TBD
+    firmware: TBD
+    download: TBD
+    known_issues: []
+    evidence_level: TBD
+    verified: false
+    notes: "待补"

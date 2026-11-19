@@ -1,0 +1,13 @@
+# data / 固件 / 产物
+data/
+*.bin
+*.img
+*.chk
+*.trx
+*.tar.gz
+*.zip
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
