@@ -17,21 +17,24 @@ anchors:
     notes: "公开固件可下载；默认凭据有大量公开记录；型号有 CVE"
 
   - id: A2
-    vendor: TBD
-    model: TBD
-    firmware: TBD
-    download: TBD
-    known_issues: []
-    evidence_level: TBD
-    verified: false
-    notes: "待补：优先路由器，公告需写明硬件版本与固件版本"
+    vendor: D-Link
+    model: DCS-960L
+    firmware: "1.07.102"
+    download: "https://legacyfiles.us.dlink.com/DCS-960L/REVA/FIRMWARE/DCS-960L_REVA_FIRMWARE_1.07.102.zip"
+    known_issues:
+      - "CVE-2019-17146：HNAP 未授权远程代码执行（v1.07.102）"
+    evidence_level: E1
+    verified: true
+    notes: "2026-11-19 实测可下载（HTTP 200 / 10,383,663 字节 / x-zip-compressed）；HNAP 为 HTTP 接口，影子设备内可复现请求-响应。注意 CVE-2024-44589/48168 针对 1.09，官网无该版本，不得引用"
 
   - id: A3
-    vendor: TBD
-    model: TBD
+    vendor: Tenda
+    model: AC15
     firmware: TBD
     download: TBD
-    known_issues: []
+    known_issues:
+      - "CVE-2018-5770：/goform/telnet 未授权开启 telnet（与 A1 同接口模式，版本待确认）"
+      - "CVE-2018-5767：V15.03.1.16_multi 未授权 RCE（password 参数）"
     evidence_level: TBD
     verified: false
-    notes: "待补"
+    notes: "方案甲已定（2026-11-19 队长选择）：Tenda AC15，与 A1 同厂商同接口模式，用于同族影响面外推。待队长从国内站 https://www.tenda.com.cn/website/service/download?keyword=AC15 取得版本与直链后置 verified"
