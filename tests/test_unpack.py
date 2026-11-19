@@ -219,3 +219,33 @@ def test_main_returns_failure_and_usage_codes(
 
     assert unpack_module.main([]) == 2
     assert "用法" in capsys.readouterr().err
+
+# 2026-11-19 在 WSL(Ubuntu 22.04) 用 binwalk 2.3.x 对
+# US_AC15V1.0BR_V15.03.05.18_multi_TD01.bin 实测得到的原始输出（原样保留）。
+REAL_BINWALK_STDOUT = """
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+64            0x40            TRX firmware header, little endian, image size: 10559488 bytes, CRC32: 0xFA817870, flags: 0x0, version: 1, header size: 28 bytes, loader offset: 0x1C, linux kernel offset: 0x1C9CD4, rootfs offset: 0x0
+92            0x5C            LZMA compressed data, properties: 0x5D, dictionary size: 65536 bytes, uncompressed size: 4585280 bytes
+1875220       0x1C9D14        Squashfs filesystem, little endian, version 4.0, compression:xz, size: 8680744 bytes, 926 inodes, blocksize: 131072 bytes, created: 2017-05-10 14:10:50
+"""
+
+
+def test_parse_signatures_on_real_binwalk_output() -> None:
+    """真实固件输出必须解析出 TRX / LZMA / squashfs 三种签名。"""
+    assert unpack_module.parse_signatures(REAL_BINWALK_STDOUT) == ["TRX", "LZMA", "squashfs"]
+
+
+def test_unpack_reports_binwalk_failure_as_extract_failed(tmp_path: Path) -> None:
+    """binwalk 自身退出码非 0 属工具故障，不得误报为 invalid_image。"""
+    image = tmp_path / "fw.bin"
+    image.write_bytes(b"\x00" * 64)
+
+    def failing_runner(argv: list[str], timeout: int) -> tuple[int, str, str]:
+        return 1, "", "Extractor Exception: --run-as required"
+
+    result = unpack_firmware(image, workdir=tmp_path, runner=failing_runner)
+
+    assert result.ok is False
+    assert result.error_kind == "extract_failed"
+    assert "binwalk 执行失败" in (result.error or "")

@@ -7,6 +7,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -151,7 +152,11 @@ def unpack_firmware(
         shutil.rmtree(extract_dir, ignore_errors=True)
 
     run = runner if runner is not None else _default_runner
-    argv = ["binwalk", "--extract", "--directory", str(extract_dir), str(image)]
+    argv = ["binwalk", "--extract"]
+    # binwalk 以 root 运行时，extractor 模块要求显式指定提取用户，否则拒绝加载。
+    if hasattr(os, "geteuid") and os.geteuid() == 0:
+        argv.append("--run-as=root")
+    argv += ["--directory", str(extract_dir), str(image)]
     try:
         exit_code, stdout, stderr = run(argv, timeout)
     except subprocess.TimeoutExpired:
@@ -163,6 +168,11 @@ def unpack_firmware(
 
     if exit_code == _BINWALK_TIMEOUT_EXIT_CODE:
         return _failure(image, extract_dir, f"binwalk 超时（{timeout}s）", "timeout")
+
+    # binwalk 自身失败（参数/权限/extractor 加载）属工具故障，不能报成“固件损坏”。
+    if exit_code != 0:
+        detail = (stderr.strip() or f"binwalk 退出码 {exit_code}")[:400]
+        return _failure(image, extract_dir, f"binwalk 执行失败: {detail}", "extract_failed")
 
     components = parse_signatures(stdout)
     if not components:
