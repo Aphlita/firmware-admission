@@ -1,0 +1,71 @@
+# 判定口径（E1/E2/E3 的唯一来源）
+#
+# 依据：docs/00-总体框架.md §7.3、docs/02-推行计划.md T1-2/T2-1、.codeartsdoer/rules/01-llm-coding-rules.md
+# 决策：2026-11-19 队长确认「不接真机、不碰现网，实测全部在隔离仿真环境完成」。
+# 用途：src/evidence.py、src/exposure.py、src/report.py 一律引用本文件的口径，不得各自定义。
+
+meta:
+  version: 1
+  decided_at: "2026-11-19"
+  decided_by: "队长确认；码道落地"
+  runtime: "影子设备 = FirmAE + QEMU 全系统仿真，隔离环境"
+  real_device_required: false
+
+evidence_levels:
+  E1:
+    name: 实测
+    definition: >
+      固件在影子设备（FirmAE / QEMU 全系统仿真）中成功启动，并通过实际请求-响应
+      复现该风险，保留报文与响应原文，可追溯到 raw_ref。
+    requires_raw_ref: true
+    requires_emulation: true
+  E2:
+    name: 单点
+    definition: >
+      固件成功仿真，但只做单次探测或单条请求，未形成完整复现链。
+    requires_raw_ref: true
+    requires_emulation: true
+  E3:
+    name: 静态
+    definition: >
+      仅从固件解包产物（配置、二进制字符串、默认口令文件）推断，未运行验证。
+    requires_raw_ref: true
+    requires_emulation: false
+
+# 仿真失败时的降级规则（避免把静态推断冒充实测）
+fallback:
+  when_emulation_failed: E3
+  note: >
+    固件在 FirmAE 中启动失败时，该固件的运行期取证一律记为 E3，
+    并标注 TODO(measure)；禁止按 E2/E1 记录。
+
+# 仿真环境与固件选择策略
+emulation_policy:
+  tool: FirmAE
+  rejected_tools:
+    - name: Firmadyne
+      reason: "公开仿真成功率仅 16.28%，不足以支撑 3 个固件全部启动"
+  host: "Ubuntu 20.04 + QEMU + KVM（FirmAE 官方验证环境）；Windows 需 WSL2/Docker 或 Linux 云主机"
+  firmware_selection_rule: >
+    优先选 FirmAE 官方公开结果表中已标记为启动成功的型号与版本，
+    以降低 T1-4「3 个固件跑起来」的失败风险。
+  target_count: 3
+  target_mix: "2 摄像头 + 1 路由（docs/00-总体框架.md §4.1）"
+
+# 方法论依据（写材料时可直接引用，数字均有出处，禁止改动）
+methodology:
+  - claim: >
+      FirmAE 将固件仿真成功率从 Firmadyne 的 16.28% 提升到 79.36%，
+      在 1,124 个无线路由器/摄像头固件上评测，并在仿真固件上发现 12 个 0-day（影响 23 台设备）。
+    source: "https://github.com/pr0v3rbs/FirmAE （KAIST, ACSAC 2020）"
+  - claim: >
+      Firmadyne 评估 23,035 个固件镜像，其中 1,971 个可运行固件里 846 个（43%）
+      可被至少一个 Metasploit exploit 攻破，估计影响 89+ 产品。
+    source: "https://github.com/firmadyne/firmadyne （NDSS 2016）"
+
+# 材料措辞约束
+wording:
+  must_state: "所有实测结论标注运行环境为「隔离仿真环境」"
+  forbidden:
+    - "真机实测"
+    - "现网验证"
