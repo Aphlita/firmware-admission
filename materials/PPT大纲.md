@@ -16,7 +16,7 @@
 | 9 | 数据集处理：解包与取证 | binwalk 封装；AC15 841 文件/1.488 s、DCS-960L 1133 文件/1.432 s、O4 614 文件；R1 748、R2 780、R3 1695、C1 971、C2 783、C3 790、C4 785、C5 978；静态证据 A3 36、R1 36、R2 35、R3 5、C1–C5 3/3/3/4/3 | `materials/实验记录.md`、`materials/firmae/` |
 | 10 | 实验：影子设备跑分 | AC15 armel 启动成功/Web 失败；DCS mipseb 启动+Web+HNAP 200+`admin:` 空口令 E1；O4 mipsel 启动/网络可达/Web 未检出（timebox） | `materials/firmae/` |
 | 11 | 证据链样例 | AC15 `sys.baseuserpass`、`/goform/telnet`；DCS `admin:` 默认口令 E1 + 未认证 HNAP E2；每条 level/confidence/raw_ref | `materials/report_a3.md`、`materials/report_fail_a2.md` |
-| 12 | 判定样例 | A2 E1 默认口令 → **reject**（U=0.932/A=0.299/conf=0.900）；A1/A3 E3-only 均 `conditional`；pass 用 **OpenWrt lab control**（裁剪后 0 findings + 9 项 clear），标注“非厂商实测” | `materials/decision_sample_fail_a2.json`、`decision_sample_pass_openwrt.json` |
+| 12 | 判定样例 | **12 台：conditional 11 / reject 1 / pass 0**；A2 E1 默认口令 → reject（U=0.932/A=0.299/conf=0.900）；A1/A3/R1–R3/C1–C5 为 E3-only conditional；pass 用 OpenWrt lab control 单列 | `materials/判定分布-12固件.md`、`materials/decisions/` |
 | 13 | 策略样例 | A1/A2/A3 ACL 4/1/5 条；FQDN；`asn-fallback` 0/3（真实样例），ASN 路径由单测覆盖 | `materials/policy_sample_a*.json` |
 | 14 | 指标与验证 | 内核启动 3/3、Web 1/3；DCS 默认口令 E1；kappa/覆盖率/误杀/漏放待标注；不编数字 | `materials/指标表.md`、`src/metrics.py` |
 | 15 | 落地与路线 | 校园/园区网管场景、等保最小授权、可复制性；CodeArts/RDS/Redis 留痕；下一步 FirmAE/标注/策略 demo | 部署方案、实验记录 |

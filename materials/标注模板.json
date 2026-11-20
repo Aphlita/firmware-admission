@@ -1,5 +1,5 @@
 {
-  "_note": "把 TODO 替换为 found/clear/not_tested；A 为主标注，B 用于一致性/kappa；不得留 TODO 后直接计算。",
+  "_note": "旧 3 锚点模板；12 固件标注请用 materials/annotations/annotator_A.json 与 annotator_B.json，步骤见 materials/双人标注操作指南.md。把 TODO 替换为 found/clear/not_tested；不得留 TODO 后直接计算。",
   "annotators": {
     "A": {
       "A1": {
