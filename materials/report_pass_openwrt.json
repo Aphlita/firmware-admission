@@ -1,0 +1,122 @@
+{
+  "firmware": {
+    "id": "OPENWRT-CLEAN",
+    "vendor": "OpenWrt（lab control）",
+    "model": "Xiaomi Mi Router 4A Gigabit（cleaned）",
+    "version": "23.05.5",
+    "sha256": "c7c0146c21e5bee27e13db604cf025e7de9fae96fae9ff2fa49c3e435bfe28ae",
+    "source_url": "https://downloads.openwrt.org/releases/23.05.5/targets/ramips/mt7621/openwrt-23.05.5-ramips-mt7621-xiaomi_mi-router-4a-gigabit-squashfs-sysupgrade.bin",
+    "family": null
+  },
+  "decision": {
+    "verdict": "pass",
+    "confidence": 1.0,
+    "exposure": 0.0,
+    "reasons": [
+      "放行：U=0.000 <= pass_max=0.20，assurance=1.000 >= 0.60",
+      "实验室负样本：已锁定 root 登录、移除 Web/LuCI 与文档/源地址文件；本样例只验证 pass 路径，不代表厂商固件实测通过"
+    ],
+    "evidence_ids": []
+  },
+  "evidence": {
+    "total": 0,
+    "by_level": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0
+    },
+    "by_category": {
+      "CRED": 0,
+      "UNAUTH": 0,
+      "EGRESS": 0
+    },
+    "items": []
+  },
+  "policy": null,
+  "static_only": true,
+  "disclaimer": "实验室负样本（非厂商固件）：在解包 rootfs 上锁定 root 登录、移除 Web/LuCI 与文档/源地址文件后，9 项静态检查均无发现；这是 pass 路径的合同样例，不代表真实厂商固件已实测通过。",
+  "assurance": 1.0,
+  "per_check": {
+    "CRED_DEFAULT_ADMIN_WEB": {
+      "status": "clear",
+      "severity": "Critical",
+      "weight": 1.0,
+      "risk": 0.0,
+      "assurance": 1.0,
+      "level": null,
+      "confidence": null
+    },
+    "CRED_DEFAULT_SERVICE_LOGIN": {
+      "status": "clear",
+      "severity": "Critical",
+      "weight": 1.0,
+      "risk": 0.0,
+      "assurance": 1.0,
+      "level": null,
+      "confidence": null
+    },
+    "CRED_HARDCODED_SECRET": {
+      "status": "clear",
+      "severity": "High",
+      "weight": 0.8,
+      "risk": 0.0,
+      "assurance": 1.0,
+      "level": null,
+      "confidence": null
+    },
+    "UNAUTH_MGMT_ENDPOINT": {
+      "status": "clear",
+      "severity": "Critical",
+      "weight": 1.0,
+      "risk": 0.0,
+      "assurance": 1.0,
+      "level": null,
+      "confidence": null
+    },
+    "UNAUTH_COMMAND_EXEC": {
+      "status": "clear",
+      "severity": "Critical",
+      "weight": 1.0,
+      "risk": 0.0,
+      "assurance": 1.0,
+      "level": null,
+      "confidence": null
+    },
+    "UNAUTH_INFO_DISCLOSURE": {
+      "status": "clear",
+      "severity": "Medium",
+      "weight": 0.6,
+      "risk": 0.0,
+      "assurance": 1.0,
+      "level": null,
+      "confidence": null
+    },
+    "EGRESS_FIXED_CLOUD_ENDPOINT": {
+      "status": "clear",
+      "severity": "Medium",
+      "weight": 0.6,
+      "risk": 0.0,
+      "assurance": 1.0,
+      "level": null,
+      "confidence": null
+    },
+    "EGRESS_PLAINTEXT_CHANNEL": {
+      "status": "clear",
+      "severity": "High",
+      "weight": 0.8,
+      "risk": 0.0,
+      "assurance": 1.0,
+      "level": null,
+      "confidence": null
+    },
+    "EGRESS_UNREGISTERED_THIRD_PARTY": {
+      "status": "clear",
+      "severity": "Low",
+      "weight": 0.3,
+      "risk": 0.0,
+      "assurance": 1.0,
+      "level": null,
+      "confidence": null
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "firmware_id": "OPENWRT-CLEAN",
+  "verdict": "pass",
+  "confidence": 1.0,
+  "exposure": 0.0,
+  "reasons": [
+    "放行：U=0.000 <= pass_max=0.20，assurance=1.000 >= 0.60",
+    "实验室负样本：已锁定 root 登录、移除 Web/LuCI 与文档/源地址文件；本样例只验证 pass 路径，不代表厂商固件实测通过"
+  ]
+}

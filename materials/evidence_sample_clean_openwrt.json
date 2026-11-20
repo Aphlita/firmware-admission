@@ -1,0 +1,10 @@
+{
+  "firmware_id": "OPENWRT-CLEAN",
+  "rootfs": "/home/rmua/t12/clean_openwrt",
+  "counts": {
+    "CRED": 0,
+    "UNAUTH": 0,
+    "EGRESS": 0
+  },
+  "evidence": []
+}

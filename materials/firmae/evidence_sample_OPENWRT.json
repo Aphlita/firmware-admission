@@ -1,0 +1,83 @@
+{
+  "firmware_id": "OPENWRT",
+  "rootfs": "/mnt/e/dsh_talking/firmware-admission/data/firmware/_openwrt-23.05.5-ramips-mt7621-xiaomi_mi-router-4a-gigabit-squashfs-sysupgrade.extracted/_openwrt-23.05.5-ramips-mt7621-xiaomi_mi-router-4a-gigabit-squashfs-sysupgrade.bin.extracted/squashfs-root",
+  "counts": {
+    "CRED": 1,
+    "UNAUTH": 1,
+    "EGRESS": 6
+  },
+  "evidence": [
+    {
+      "id": "E-OPENWRT-0001",
+      "firmware_id": "OPENWRT",
+      "check_code": "CRED_DEFAULT_SERVICE_LOGIN",
+      "level": "E3",
+      "confidence": 0.3,
+      "raw_ref": "etc/passwd:1",
+      "detail": "静态发现可登录账号 root（uid=0, shell=/bin/ash）；是否为默认口令待影子设备实测 TODO(measure)"
+    },
+    {
+      "id": "E-OPENWRT-0002",
+      "firmware_id": "OPENWRT",
+      "check_code": "EGRESS_FIXED_CLOUD_ENDPOINT",
+      "level": "E3",
+      "confidence": 0.4,
+      "raw_ref": "etc/config/firewall:31",
+      "detail": "静态发现硬编码 https 外联地址 host=dev.openwrt.org；域名归属与外联行为未验证 TODO(measure)"
+    },
+    {
+      "id": "E-OPENWRT-0003",
+      "firmware_id": "OPENWRT",
+      "check_code": "EGRESS_FIXED_CLOUD_ENDPOINT",
+      "level": "E3",
+      "confidence": 0.4,
+      "raw_ref": "etc/config/firewall:57",
+      "detail": "静态发现硬编码 https 外联地址 host=github.com；域名归属与外联行为未验证 TODO(measure)"
+    },
+    {
+      "id": "E-OPENWRT-0004",
+      "firmware_id": "OPENWRT",
+      "check_code": "EGRESS_FIXED_CLOUD_ENDPOINT",
+      "level": "E3",
+      "confidence": 0.4,
+      "raw_ref": "etc/device_info:2",
+      "detail": "静态发现硬编码 https 外联地址 host=openwrt.org；域名归属与外联行为未验证 TODO(measure)"
+    },
+    {
+      "id": "E-OPENWRT-0005",
+      "firmware_id": "OPENWRT",
+      "check_code": "EGRESS_FIXED_CLOUD_ENDPOINT",
+      "level": "E3",
+      "confidence": 0.4,
+      "raw_ref": "etc/opkg/customfeeds.conf:3",
+      "detail": "静态发现硬编码 http 外联地址 host=www.example.com；域名归属与外联行为未验证 TODO(measure)"
+    },
+    {
+      "id": "E-OPENWRT-0006",
+      "firmware_id": "OPENWRT",
+      "check_code": "EGRESS_FIXED_CLOUD_ENDPOINT",
+      "level": "E3",
+      "confidence": 0.4,
+      "raw_ref": "etc/opkg/distfeeds.conf:1",
+      "detail": "静态发现硬编码 https 外联地址 host=downloads.openwrt.org；域名归属与外联行为未验证 TODO(measure)"
+    },
+    {
+      "id": "E-OPENWRT-0007",
+      "firmware_id": "OPENWRT",
+      "check_code": "EGRESS_FIXED_CLOUD_ENDPOINT",
+      "level": "E3",
+      "confidence": 0.4,
+      "raw_ref": "etc/protocols:3",
+      "detail": "静态发现硬编码 http 外联地址 host=www.iana.org；域名归属与外联行为未验证 TODO(measure)"
+    },
+    {
+      "id": "E-OPENWRT-0008",
+      "firmware_id": "OPENWRT",
+      "check_code": "UNAUTH_MGMT_ENDPOINT",
+      "level": "E3",
+      "confidence": 0.3,
+      "raw_ref": "etc/config/uhttpd:58",
+      "detail": "静态发现接口 /cgi-bin/luci；鉴权状态未验证，需影子设备实测 TODO(measure)"
+    }
+  ]
+}
