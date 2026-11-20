@@ -1,0 +1,23 @@
+firmware: D-Link DCS-960L 1.07.102
+image: DCS-960L_A1_FW_1.07.102.bin
+sha256: 7cf0fbc9ba0071677fe3cf0b5e7c951e28c1709fed4c946951dd896ff48d9130
+firmware_iid: 2
+architecture: mipseb
+brand: dlink
+ip: 192.168.0.1
+ip.0: 192.168.0.1
+ping: true
+web: true
+result: true
+time_extract: .560921148
+time_extract_first_run: 7.394312370
+time_arch: .415280168
+time_arch_first_run: .366458842
+time_image: 7.039482667
+time_tar: .860196798
+time_network: 421.941850341
+time_ping: 22.285216665
+status: boot_success_web_reachable
+web_probe: GET / -> 401 Basic realm=DCS-960L; GET /HNAP1/ -> 200 GetDeviceSettingsResponse
+default_credential_probe: HTTP Basic admin: -> 200; /home.asp -> 200 (38,782 bytes) [E1]
+other_credentials: admin:admin -> 401; admin:password -> 401

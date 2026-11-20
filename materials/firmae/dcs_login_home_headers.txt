@@ -1,0 +1,25 @@
+﻿HTTP/1.1 200 OK
+Connection: keep-alive
+Date: Fri, 12 Apr 2019 04:00:53 GMT
+Accept-Ranges: bytes
+Content-Type: text/html
+Expires: Mon, 01 Jul 1980 00:00:00 GMT
+Cache-Control: no-cache, no-store, must-revalidate
+Pragma: no-cache
+Content-Length: 38782
+
+锘?!DOCTYPE html>
+<html>
+<head>
+<link rel="Bookmark" type="image/x-icon"  href="/favicon.ico">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" rev="stylesheet" href="dlink.css" type="text/css">
+<link rel="stylesheet" rev="stylesheet" href="icons.css" type="text/css">
+<title></title>
+<meta http-equiv="X-UA-Compatible" content="requiresActiveX=true">
+<meta content="text/html; charset=utf-8" http-equiv=Content-Type>
+<meta HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<meta HTTP-EQUIV="Expires" CONTENT="-1">
+<script type="text/javascript" language="Javascript" SRC="cookies.js"></script>
+<script type="text/javascript" language="Javascript" SRC="function.js"></script>

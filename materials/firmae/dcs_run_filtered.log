@@ -1,0 +1,16 @@
+2026-11-20T14:33:27+08:00
+CMD: ./run.sh -r dlink /home/rmua/t12/dcs/DCS-960L_A1_FW_1.07.102.bin
+[*] /home/rmua/t12/dcs/DCS-960L_A1_FW_1.07.102.bin emulation start!!!
+[*] Extract done!!!
+[+] get architecture done!!!
+[+] Start emulation!!!
+
+[IID] 2
+[[33mMODE[0m] run
+[*] /home/rmua/t12/dcs/DCS-960L_A1_FW_1.07.102.bin already succeed emulation!!!
+[[32m+[0m] Network reachable on 192.168.0.1!
+[[32m+[0m] Web service on 192.168.0.1
+Creating TAP device tap2_0...
+Set 'tap2_0' persistent and owned by uid 0
+Bringing up TAP device...
+Starting emulation of firmware... 192.168.0.1 true true 42.727145111 42.727145111

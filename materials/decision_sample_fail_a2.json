@@ -1,0 +1,95 @@
+{
+  "firmware_id": "A2",
+  "verdict": "reject",
+  "confidence": 0.9,
+  "exposure": 0.9323943661971832,
+  "assurance": 0.2985915492957747,
+  "reasons": [
+    "红线：CRED_DEFAULT_ADMIN_WEB（Critical）为 E1 确认风险，直接拒绝",
+    "证据不足：加权保障度 assurance=0.299 < 0.60，未测项或弱证据占比较高，不能直接放行",
+    "风险项 3 个：CRED_DEFAULT_ADMIN_WEB(E1,c=0.90)；UNAUTH_MGMT_ENDPOINT(E2,c=0.70)；UNAUTH_INFO_DISCLOSURE(E2,c=0.70)"
+  ],
+  "per_check": {
+    "CRED_DEFAULT_ADMIN_WEB": {
+      "status": "found",
+      "severity": "Critical",
+      "weight": 1.0,
+      "risk": 1.0,
+      "assurance": 1.0,
+      "level": "E1",
+      "confidence": 0.9
+    },
+    "CRED_DEFAULT_SERVICE_LOGIN": {
+      "status": "not_tested",
+      "severity": "Critical",
+      "weight": 1.0,
+      "risk": 1.0,
+      "assurance": 0.0,
+      "level": null,
+      "confidence": null
+    },
+    "CRED_HARDCODED_SECRET": {
+      "status": "not_tested",
+      "severity": "High",
+      "weight": 0.8,
+      "risk": 0.8,
+      "assurance": 0.0,
+      "level": null,
+      "confidence": null
+    },
+    "UNAUTH_MGMT_ENDPOINT": {
+      "status": "found",
+      "severity": "Critical",
+      "weight": 1.0,
+      "risk": 0.7,
+      "assurance": 0.7,
+      "level": "E2",
+      "confidence": 0.7
+    },
+    "UNAUTH_COMMAND_EXEC": {
+      "status": "not_tested",
+      "severity": "Critical",
+      "weight": 1.0,
+      "risk": 1.0,
+      "assurance": 0.0,
+      "level": null,
+      "confidence": null
+    },
+    "UNAUTH_INFO_DISCLOSURE": {
+      "status": "found",
+      "severity": "Medium",
+      "weight": 0.6,
+      "risk": 0.42,
+      "assurance": 0.7,
+      "level": "E2",
+      "confidence": 0.7
+    },
+    "EGRESS_FIXED_CLOUD_ENDPOINT": {
+      "status": "not_tested",
+      "severity": "Medium",
+      "weight": 0.6,
+      "risk": 0.6,
+      "assurance": 0.0,
+      "level": null,
+      "confidence": null
+    },
+    "EGRESS_PLAINTEXT_CHANNEL": {
+      "status": "not_tested",
+      "severity": "High",
+      "weight": 0.8,
+      "risk": 0.8,
+      "assurance": 0.0,
+      "level": null,
+      "confidence": null
+    },
+    "EGRESS_UNREGISTERED_THIRD_PARTY": {
+      "status": "not_tested",
+      "severity": "Low",
+      "weight": 0.3,
+      "risk": 0.3,
+      "assurance": 0.0,
+      "level": null,
+      "confidence": null
+    }
+  }
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "E-A2-E1-0001",
+    "firmware_id": "A2",
+    "check_code": "CRED_DEFAULT_ADMIN_WEB",
+    "level": "E1",
+    "confidence": 0.9,
+    "raw_ref": "materials/firmae/dcs_login_home_headers.txt:1",
+    "detail": "DCS-960L 1.07.102 影子设备；HTTP Basic admin/空口令返回 200，/home.asp 返回 38,782 字节管理页；默认口令实测复现"
+  },
+  {
+    "id": "E-A2-E2-0001",
+    "firmware_id": "A2",
+    "check_code": "UNAUTH_MGMT_ENDPOINT",
+    "level": "E2",
+    "confidence": 0.7,
+    "raw_ref": "materials/firmae/dcs_login_hnap.txt:1",
+    "detail": "DCS-960L 1.07.102 影子设备；未认证 GET /HNAP1/ 返回 200 与 GetDeviceSettingsResponse；单次请求，未形成完整利用链 TODO(measure)"
+  },
+  {
+    "id": "E-A2-E2-0002",
+    "firmware_id": "A2",
+    "check_code": "UNAUTH_INFO_DISCLOSURE",
+    "level": "E2",
+    "confidence": 0.7,
+    "raw_ref": "materials/firmae/dcs_login_hnap.txt:1",
+    "detail": "未认证 HNAP 响应泄露型号/固件/硬件/MAC（DCS-960L / A1 / 1.07 / 52:54:00:12:34:56）；单次请求 TODO(measure)"
+  }
+]
