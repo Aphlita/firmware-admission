@@ -14,11 +14,11 @@
 | 7 | 创新点三：策略与判定同源、可回滚 | 端点 → FQDN/vendor-group/ASN；ACL/MUD；`asn-fallback` 显式；`rollback_ref` 必填 | `src/policy.py`、`configs/baseline.yaml` |
 | 8 | 数据集：三锚点 + 12 固件计划 | A1 Tenda O4 V3.0、A2 D-Link DCS-960L 1.07.102、A3 Tenda AC15 V15.03.05.18；公开固件、SHA-256、CVE 版本对齐；12 固件目标 | `configs/anchors.yaml`、`materials/数据集说明.md` |
 | 9 | 数据集处理：解包与取证 | binwalk 封装；AC15 841 文件/1.488 s、DCS-960L 1133 文件/1.432 s、O4 614 文件；三类静态取证 36/4/32 条 | `materials/实验记录.md`、`materials/证据样例` |
-| 10 | 实验：影子设备跑分 | AC15 armel 启动成功、网络 192.168.0.1 可达、Web 80 拒绝；DCS/O4 待跑；失败按 E3 记录 | `materials/firmae/` |
-| 11 | 证据链样例 | 默认口令 `sys.baseuserpass`、`/goform/telnet`、`www.tenda.com.cn`/`www.oray.com`；每条 level/confidence/raw_ref | `materials/report_a3.md` |
-| 12 | 判定样例 | A1/A2/A3 当前 E3-only 均 `conditional`（U/A：0.625/0.245、0.794/0.132、0.642/0.262）；pass/reject 需 E1/clean 固件 | `materials/decision_sample_a*.json` |
+| 10 | 实验：影子设备跑分 | AC15 armel 启动成功/Web 失败；DCS mipseb 启动+Web+HNAP 200+`admin:` 空口令 E1；O4 mipsel 启动/网络可达/Web 未检出（timebox） | `materials/firmae/` |
+| 11 | 证据链样例 | AC15 `sys.baseuserpass`、`/goform/telnet`；DCS `admin:` 默认口令 E1 + 未认证 HNAP E2；每条 level/confidence/raw_ref | `materials/report_a3.md`、`materials/report_fail_a2.md` |
+| 12 | 判定样例 | A2 E1 默认口令 → **reject**（U=0.932/A=0.299/conf=0.900）；A1/A3 E3-only 均 `conditional`；pass 待 clean 固件 | `materials/decision_sample_fail_a2.json`、`decision_sample_a3.json` |
 | 13 | 策略样例 | A1/A2/A3 ACL 4/1/5 条；FQDN；`asn-fallback` 0/3（真实样例），ASN 路径由单测覆盖 | `materials/policy_sample_a*.json` |
-| 14 | 指标与验证 | 解包耗时/文件数；kappa/覆盖率/误杀/漏放待标注；启动成功率/Web 可用率；不编数字 | `materials/指标表.md`、`src/metrics.py` |
+| 14 | 指标与验证 | 内核启动 3/3、Web 1/3；DCS 默认口令 E1；kappa/覆盖率/误杀/漏放待标注；不编数字 | `materials/指标表.md`、`src/metrics.py` |
 | 15 | 落地与路线 | 校园/园区网管场景、等保最小授权、可复制性；CodeArts/RDS/Redis 留痕；下一步 FirmAE/标注/策略 demo | 部署方案、实验记录 |
 
 ## 讲述节奏（15 分钟版）
