@@ -1,0 +1,1 @@
+BIN=/home/rmua/t12/batch/C2/DCS-5222L_B1_FW_V2.14.04.bin

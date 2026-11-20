@@ -1,0 +1,2 @@
+BIN=/mnt/e/dsh_talking/firmware-admission/data/firmware/Tapo_C200v1_en_1.1.16_Build_211209_Rel.37726n__1640684337995.bin
+ROOTFS=/mnt/e/dsh_talking/firmware-admission/data/firmware/_Tapo_C200v1_en_1.1.16_Build_211209_Rel.37726n__1640684337995.extracted/_Tapo_C200v1_en_1.1.16_Build_211209_Rel.37726n__1640684337995.bin.extracted/squashfs-root

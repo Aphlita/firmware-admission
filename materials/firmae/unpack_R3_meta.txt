@@ -1,0 +1,2 @@
+BIN=/mnt/e/dsh_talking/firmware-admission/data/firmware/2021.07.21-16.18_DIR_825E_RT8197F_3.0.3_release.bin
+ROOTFS=/mnt/e/dsh_talking/firmware-admission/data/firmware/_2021.07.21-16.18_DIR_825E_RT8197F_3.0.3_release.extracted/_2021.07.21-16.18_DIR_825E_RT8197F_3.0.3_release.bin.extracted/squashfs-root

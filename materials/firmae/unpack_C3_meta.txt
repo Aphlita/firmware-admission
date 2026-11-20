@@ -1,0 +1,1 @@
+BIN=/home/rmua/t12/batch/C3/dcs5020l_v1.13.05.bin

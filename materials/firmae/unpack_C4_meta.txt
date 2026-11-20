@@ -1,0 +1,1 @@
+BIN=/home/rmua/t12/batch/C4/DCS-2132L_B1_FW_V2.13.03.bin
