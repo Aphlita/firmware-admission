@@ -1,0 +1,1 @@
+{"ok": false, "image_path": "/home/rmua/t12/batch/C1/dcs933l_v1.14.11.bin", "extract_dir": "/home/rmua/t12/batch/C1/_dcs933l_v1.14.11.extracted", "filesystem_paths": [], "file_count": 0, "components": ["uImage", "LZMA"], "error": "解包未产出文件系统", "error_kind": "extract_failed"}

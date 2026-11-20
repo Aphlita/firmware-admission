@@ -13,7 +13,7 @@
 | 6 | 创新点二：判定口径可解释 | 阳性发现按风险累计；未测按最坏；保障度不足只能条件放行；Critical E1 硬红线 | `materials/判定口径-T2-1.md`、`src/exposure.py` |
 | 7 | 创新点三：策略与判定同源、可回滚 | 端点 → FQDN/vendor-group/ASN；ACL/MUD；`asn-fallback` 显式；`rollback_ref` 必填 | `src/policy.py`、`configs/baseline.yaml` |
 | 8 | 数据集：三锚点 + 12 固件 | A1 Tenda O4 V3.0、A2 D-Link DCS-960L 1.07.102、A3 Tenda AC15 V15.03.05.18；**12/12 文件已获取（6 摄像头 / 6 路由）**，SHA-256 与直链见数据集说明；其余 9 个为样本，不冒充锚点 | `configs/anchors.yaml`、`materials/数据集说明.md` |
-| 9 | 数据集处理：解包与取证 | binwalk 封装；AC15 841 文件/1.488 s、DCS-960L 1133 文件/1.432 s、O4 614 文件；R1 748、R2 780、R3 1695、C5 978；静态证据 A3 36 条、R1 36、R2 35、R3 5、C5 3 | `materials/实验记录.md`、`materials/firmae/` |
+| 9 | 数据集处理：解包与取证 | binwalk 封装；AC15 841 文件/1.488 s、DCS-960L 1133 文件/1.432 s、O4 614 文件；R1 748、R2 780、R3 1695、C1 971、C2 783、C3 790、C4 785、C5 978；静态证据 A3 36、R1 36、R2 35、R3 5、C1–C5 3/3/3/4/3 | `materials/实验记录.md`、`materials/firmae/` |
 | 10 | 实验：影子设备跑分 | AC15 armel 启动成功/Web 失败；DCS mipseb 启动+Web+HNAP 200+`admin:` 空口令 E1；O4 mipsel 启动/网络可达/Web 未检出（timebox） | `materials/firmae/` |
 | 11 | 证据链样例 | AC15 `sys.baseuserpass`、`/goform/telnet`；DCS `admin:` 默认口令 E1 + 未认证 HNAP E2；每条 level/confidence/raw_ref | `materials/report_a3.md`、`materials/report_fail_a2.md` |
 | 12 | 判定样例 | A2 E1 默认口令 → **reject**（U=0.932/A=0.299/conf=0.900）；A1/A3 E3-only 均 `conditional`；pass 用 **OpenWrt lab control**（裁剪后 0 findings + 9 项 clear），标注“非厂商实测” | `materials/decision_sample_fail_a2.json`、`decision_sample_pass_openwrt.json` |

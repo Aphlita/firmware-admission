@@ -1,0 +1,1 @@
+{"ok": false, "image_path": "/home/rmua/t12/batch/C4/DCS-2132L_B1_FW_V2.13.03.bin", "extract_dir": "/home/rmua/t12/batch/C4/_DCS-2132L_B1_FW_V2.13.03.extracted", "filesystem_paths": [], "file_count": 0, "components": [], "error": "未识别出固件签名: binwalk 未输出签名行", "error_kind": "invalid_image"}
