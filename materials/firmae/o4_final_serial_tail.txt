@@ -1,0 +1,60 @@
+[1;31mERROR:ugw_proc_send_msg[317]connect server is fail.
+
+[mfunc:log_encode_msg_to_server, line:78, send msg is fail.
+add syslog is fail.
+argv[0] = cfmd
+[monitor]set priority pid = 705, priority = 0
+cfmd
+cfms_apmib_init 774: cfms apmib init fail (try 1 times)
+cfms_apmib_init 774: cfms apmib init fail (try 2 times)
+/bin/iptables
+Bad argument `flush'
+Try `iptables -h' or 'iptables --help' for more information.
+[  363.744003] firmadyne: sys_socket[PID: 710 (iptables)]: family:1, type:2, protocol:0
+[  363.744340] firmadyne: sys_socket[PID: 710 (iptables)]: family:2, type:3, protocol:255
+[  363.745345] firmadyne: sys_setsockopt[PID: 710 (iptables)]: fd:4, level:0, optname:64
+[  363.745613] firmadyne: sys_setsockopt[PID: 710 (iptables)]: fd:4, level:0, optname:65
+[  363.766759] firmadyne: sys_socket[PID: 712 (iptables)]: family:1, type:2, protocol:0
+[  363.767455] firmadyne: sys_socket[PID: 712 (iptables)]: family:2, type:3, protocol:255
+[  363.768512] firmadyne: sys_setsockopt[PID: 712 (iptables)]: fd:4, level:0, optname:64
+[  363.768943] firmadyne: sys_setsockopt[PID: 712 (iptables)]: fd:4, level:0, optname:65
+cfms_apmib_init 784: cfms apmib_backup init fail (try 1 times)
+cfms_apmib_init 784: cfms apmib_backup init fail (try 2 times)
+/bin/iptables
+Bad argument `flush'
+Try `iptables -h' or 'iptables --help' for more information.
+[  368.811699] firmadyne: sys_socket[PID: 719 (iptables)]: family:1, type:2, protocol:0
+[  368.812043] firmadyne: sys_socket[PID: 719 (iptables)]: family:2, type:3, protocol:255
+[  368.812796] firmadyne: sys_setsockopt[PID: 719 (iptables)]: fd:4, level:0, optname:64
+[  368.813197] firmadyne: sys_setsockopt[PID: 719 (iptables)]: fd:4, level:0, optname:65
+[  368.834732] firmadyne: sys_socket[PID: 721 (iptables)]: family:1, type:2, protocol:0
+[  368.835238] firmadyne: sys_socket[PID: 721 (iptables)]: family:2, type:3, protocol:255
+[  368.836022] firmadyne: sys_setsockopt[PID: 721 (iptables)]: fd:4, level:0, optname:64
+[  368.836276] firmadyne: sys_setsockopt[PID: 721 (iptables)]: fd:4, level:0, optname:65
+cfms_apmib_init 829: cfms apmib && apmib_backup init fail
+cfms_apmib_default 585: Restore default apmib config
+func:cfms_apmib_default, line:591, get mtd size is fail.
+Repeate pid = 705
+[  370.178175] firmadyne: sys_socket[PID: 121 (monitor)]: family:1, type:2, protocol:0
+connect: No such file or directory
+[1;31mERROR:ugw_proc_send_msg[317]connect server is fail.
+
+[mfunc:log_encode_msg_to_server, line:78, send msg is fail.
+add syslog is fail.
+argv[0] = cfmd
+[monitor]set priority pid = 724, priority = 0
+cfmd
+cfms_apmib_init 774: cfms apmib init fail (try 1 times)
+cfms_apmib_init 774: cfms apmib init fail (try 2 times)
+/bin/iptables
+Bad argument `flush'
+Try `iptables -h' or 'iptables --help' for more information.
+[  373.898197] firmadyne: sys_socket[PID: 729 (iptables)]: family:1, type:2, protocol:0
+[  373.898552] firmadyne: sys_socket[PID: 729 (iptables)]: family:2, type:3, protocol:255
+[  373.899342] firmadyne: sys_setsockopt[PID: 729 (iptables)]: fd:4, level:0, optname:64
+[  373.899604] firmadyne: sys_setsockopt[PID: 729 (iptables)]: fd:4, level:0, optname:65
+[  373.919625] firmadyne: sys_socket[PID: 731 (iptables)]: family:1, type:2, protocol:0
+[  373.920141] firmadyne: sys_socket[PID: 731 (iptables)]: family:2, type:3, protocol:255
+[  373.921342] firmadyne: sys_setsockopt[PID: 731 (iptables)]: fd:4, level:0, optname:64
+[  373.921685] firmadyne: sys_setsockopt[PID: 731 (iptables)]: fd:4, level:0, optname:65
+cfms_apmib_init 784: cfms apmib_backup init fail (try 1 times)

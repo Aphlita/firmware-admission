@@ -1,0 +1,40 @@
+add syslog is fail.
+argv[0] = cfmd
+[monitor]set priority pid = 140, priority = 0
+cfmd
+cfms_apmib_init 774: cfms apmib init fail (try 1 times)
+cfms_apmib_init 774: cfms apmib init fail (try 2 times)
+cfms_apmib_init 784: cfms apmib_backup init fail (try 1 times)
+cfms_apmib_init 784: cfms apmib_backup init fail (try 2 times)
+cfms_apmib_init 829: cfms apmib && apmib_backup init fail
+cfms_apmib_default 585: Restore default apmib config
+func:cfms_apmib_default, line:591, get mtd size is fail.
+Repeate pid = 140
+[   51.237486] firmadyne: sys_socket[PID: 120 (monitor)]: family:1, type:2, protocol:0
+connect: No such file or directory
+[1;31mERROR:ugw_proc_send_msg[317]connect server is fail.
+
+[mfunc:log_encode_msg_to_server, line:78, send msg is fail.
+add syslog is fail.
+argv[0] = cfmd
+[monitor]set priority pid = 141, priority = 0
+cfmd
+cfms_apmib_init 774: cfms apmib init fail (try 1 times)
+cfms_apmib_init 774: cfms apmib init fail (try 2 times)
+cfms_apmib_init 784: cfms apmib_backup init fail (try 1 times)
+cfms_apmib_init 784: cfms apmib_backup init fail (try 2 times)
+cfms_apmib_init 829: cfms apmib && apmib_backup init fail
+cfms_apmib_default 585: Restore default apmib config
+func:cfms_apmib_default, line:591, get mtd size is fail.
+Repeate pid = 141
+[   60.398847] firmadyne: sys_socket[PID: 120 (monitor)]: family:1, type:2, protocol:0
+connect: No such file or directory
+[1;31mERROR:ugw_proc_send_msg[317]connect server is fail.
+
+[mfunc:log_encode_msg_to_server, line:78, send msg is fail.
+add syslog is fail.
+argv[0] = cfmd
+[monitor]set priority pid = 142, priority = 0
+cfmd
+cfms_apmib_init 774: cfms apmib init fail (try 1 times)
+cfms_apmib_init 774: cfms apmib init fail (try 2 times)

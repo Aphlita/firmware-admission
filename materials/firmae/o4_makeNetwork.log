@@ -1,0 +1,45 @@
+[*] Infer test: /init (symbolic link to bin/busybox)
+[*] web service: None
+Running firmware 3: terminating after 360 secs...
+qemu-system-mipsel: terminating on signal 2 from pid 1901 (timeout)
+Infer NVRAM default file!
+
+[*] Interfaces: []
+[*] ports: []
+[*] networkInfo: []
+[*] no network interface: bring up default network
+[*] filter network info: [('192.168.0.1', 'eth0', None, None, 'br0')]
+===== Check inferred emulation start =====
+[*] Inferred network: terminating after 360 secs...
+[*] Waiting web service... from 192.168.0.1: terminating after 360 secs...
+=====  Check inferred emulation end  =====
+qemu-system-mipsel: terminating on signal 15 from pid 6310 (<unknown process>)
+[*] Infer test: /etc_ro/init.d/rcS (POSIX shell script, Unicode text, UTF-8 text executable)
+[*] web service: None
+Running firmware 3: terminating after 360 secs...
+qemu-system-mipsel: terminating on signal 2 from pid 6393 (timeout)
+Infer NVRAM default file!
+
+[*] Interfaces: []
+[*] ports: []
+[*] networkInfo: []
+[*] no network interface: bring up default network
+[*] filter network info: [('192.168.0.1', 'eth0', None, None, 'br0')]
+===== Check inferred emulation start =====
+[*] Inferred network: terminating after 360 secs...
+[*] Waiting web service... from 192.168.0.1: terminating after 360 secs...
+qemu-system-mipsel: terminating on signal 15 from pid 10565 ()
+=====  Check inferred emulation end  =====
+[*] Infer test: /firmadyne/preInit.sh (a /firmadyne/sh script, ASCII text executable)
+[*] web service: None
+Running firmware 3: terminating after 360 secs...
+qemu-system-mipsel: terminating on signal 15 from pid 10705 ()
+Infer NVRAM default file!
+
+[*] Interfaces: []
+[*] ports: []
+[*] networkInfo: []
+[*] no network interface: bring up default network
+[*] filter network info: [('192.168.0.1', 'eth0', None, None, 'br0')]
+===== Check inferred emulation start =====
+[*] Inferred network: terminating after 360 secs...

@@ -1,0 +1,19 @@
+firmware: Tenda O4 V3.0 V1.0.0.19(6074)
+image: US_O4V3.0_si_V1.0.0.19(6074)_EN_TDE01_HighPower.bin
+sha256: cd49be04b962b55c981bd35f900a11e7fdf26009a6316301e0742cb596608cac
+firmware_iid: 3
+architecture: mipsel
+brand: tenda
+ip: 192.168.0.1
+ip.0: 192.168.0.1
+ping: true
+web: missing
+result: missing
+time_extract: 8.242440688
+time_arch: .264781828
+time_image: 6.778973925
+time_tar: .990631897
+time_network: not_finished
+time_ping: .170857027
+status: boot_success_network_reachable_web_unreachable_timebox
+note: makeNetwork 依次尝试 /init、/etc_ro/init.d/rcS、/firmadyne/preInit.sh；26 min 后手动停止，未写 result；Web 80/443 未检出

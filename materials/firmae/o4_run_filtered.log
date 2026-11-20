@@ -1,0 +1,16 @@
+2026-11-20T14:35:47+08:00
+CMD: ./run.sh -c tenda /home/rmua/t12/a1/US_O4V3.0_si_V1.0.0.19(6074)_EN_TDE01_HighPower.bin
+BIN: cd49be04b962b55c981bd35f900a11e7fdf26009a6316301e0742cb596608cac  /home/rmua/t12/a1/US_O4V3.0_si_V1.0.0.19(6074)_EN_TDE01_HighPower.bin
+[*] /home/rmua/t12/a1/US_O4V3.0_si_V1.0.0.19(6074)_EN_TDE01_HighPower.bin emulation start!!!
+[*] Extract done!!!
+[+] get architecture done!!!
+[+] Start emulation!!!
+
+[IID] 3
+[[33mMODE[0m] check
+mke2fs 1.46.5 (30-Dec-2021)
+mknod: /dev/console: File exists
+e2fsck 1.46.5 (30-Dec-2021)
+[*] infer network start!!!
+EXIT=143
+2026-11-20T15:02:24+08:00
