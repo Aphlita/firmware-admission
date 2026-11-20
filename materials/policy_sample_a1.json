@@ -1,0 +1,14 @@
+{
+  "firmware_id": "A1",
+  "granularity": "fqdn",
+  "rule_format": "acl",
+  "rule_count": 4,
+  "asn_fallback": false,
+  "rollback_ref": "rb-A1",
+  "rules": [
+    "permit tcp any host cloudfi.tenda.com.cn eq 443",
+    "permit tcp any host cloudfi.tendacn.com eq 443",
+    "permit tcp any host ims.ip-com.com.cn eq 443",
+    "permit tcp any host imsen.ip-com.com.cn eq 443"
+  ]
+}

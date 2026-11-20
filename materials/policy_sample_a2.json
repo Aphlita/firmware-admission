@@ -1,0 +1,11 @@
+{
+  "firmware_id": "A2",
+  "granularity": "fqdn",
+  "rule_format": "acl",
+  "rule_count": 1,
+  "asn_fallback": false,
+  "rollback_ref": "rb-A2",
+  "rules": [
+    "permit tcp any host www.dlink.com eq 80"
+  ]
+}
