@@ -1,0 +1,44 @@
+[    3.537362] pc : [<b6e3d50c>]    lr : [<b6e769c4>]    psr: a0000010
+[    3.537362] sp : be9cda00  ip : b6e3d508  fp : be9cda3c
+[    3.537556] r10: be9cdda8  r9 : 0000a078  r8 : 00009474
+[    3.537644] r7 : be9cdf2c  r6 : 00000001  r5 : be9cda1c  r4 : b6e82424
+[    3.537748] r3 : be9cda1c  r2 : 00000258  r1 : 00000000  r0 : be9cda1c
+[    3.537868] Flags: NzCv  IRQs on  FIQs on  Mode USER_32  ISA ARM  Segment user
+[    3.537985] Control: 10c5387d  Table: 4eb58059  DAC: 00000015
+[    3.538084] CPU: 0 PID: 83 Comm: cfmd Tainted: G        W       4.1.17+ #18
+[    3.538195] Hardware name: Generic DT based system
+[    3.538294] [<c001c8dc>] (unwind_backtrace) from [<c0019c70>] (show_stack+0x10/0x14)
+[    3.538427] [<c0019c70>] (show_stack) from [<c001e7a4>] (__do_user_fault+0x74/0xbc)
+[    3.538559] [<c001e7a4>] (__do_user_fault) from [<c0417544>] (do_page_fault+0x27c/0x2c0)
+[    3.538694] [<c0417544>] (do_page_fault) from [<c0009214>] (do_DataAbort+0x34/0xb4)
+[    3.538822] [<c0009214>] (do_DataAbort) from [<c0416f5c>] (__dabt_usr+0x3c/0x40)
+[    3.538943] Exception stack(0xceb15fb0 to 0xceb15ff8)
+[    3.539032] 5fa0:                                     be9cda1c 00000000 00000258 be9cda1c
+[    3.539311] 5fc0: b6e82424 be9cda1c 00000001 be9cdf2c 00009474 0000a078 be9cdda8 be9cda3c
+[    3.539830] 5fe0: b6e3d508 be9cda00 b6e769c4 b6e3d50c a0000010 ffffffff
+/usr/sbin/wl: wl driver adapter not found
+[    3.545677] firmadyne: sys_socket[PID: 1 (init)]: family:1, type:2, protocol:0
+[    3.545937] firmadyne: sys_socket[PID: 1 (init)]: family:1, type:1, protocol:0
+
+The system is going down NOW!
+[    3.556516] firmadyne: sys_socket[PID: 1 (init)]: family:1, type:2, protocol:0
+[    3.556818] firmadyne: sys_socket[PID: 1 (init)]: family:1, type:1, protocol:0
+
+Sent SIGTERM to all processes
+cfmd -> Term_Sig_entry [15]...
+
+Sent SIGKILL to all processes
+
+Requesting system reboot
+[    5.572696] firmadyne: sys_reboot[PID: 173 (init)]: magic1:fee1dead, magic2:28121969, cmd:1234567
+[    5.573039] firmadyne: sys_reboot: removed CAP_SYS_BOOT, starting init...
+[    6.399947] cfg80211: Calling CRDA to update world regulatory domain
+[    9.550836] cfg80211: Calling CRDA to update world regulatory domain
+[   12.699812] cfg80211: Calling CRDA to update world regulatory domain
+[   15.850505] cfg80211: Calling CRDA to update world regulatory domain
+[   18.999970] cfg80211: Calling CRDA to update world regulatory domain
+[   22.150148] cfg80211: Calling CRDA to update world regulatory domain
+[   25.300944] cfg80211: Calling CRDA to update world regulatory domain
+[   28.450545] cfg80211: Calling CRDA to update world regulatory domain
+[   31.600711] cfg80211: Calling CRDA to update world regulatory domain
+[   34.749937] cfg80211: Exceeded CRDA call max attempts. Not calling CRDA

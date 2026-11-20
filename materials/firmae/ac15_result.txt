@@ -1,0 +1,19 @@
+firmware: Tenda AC15 V15.03.05.18
+image: US_AC15V1.0BR_V15.03.05.18_multi_TD01.bin
+sha256: 8727e3470dd2280cd2bc0a75c5f9fccc93082df855a60c551d2e06cd234c7025
+firmware_iid: 1
+architecture: armel
+brand: tenda
+ip: 192.168.0.1
+ip.0: 192.168.0.1
+ping: true
+web: missing
+result: false
+time_extract: 7.052232757
+time_arch: .343851572
+time_image: 6.712772003
+time_tar: .428305831
+time_network: 2261.760525901
+time_ping: 70.612500943
+status: boot_success_web_unreachable
+note: ping reachable on 192.168.0.1; HTTP 80 refused after both /init and /etc_ro/init.d/rcS attempts

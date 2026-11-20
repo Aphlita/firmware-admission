@@ -1,0 +1,78 @@
+{
+  "_note": "把 TODO 替换为 found/clear/not_tested；A 为主标注，B 用于一致性/kappa；不得留 TODO 后直接计算。",
+  "annotators": {
+    "A": {
+      "A1": {
+        "CRED_DEFAULT_ADMIN_WEB": "TODO",
+        "CRED_DEFAULT_SERVICE_LOGIN": "TODO",
+        "CRED_HARDCODED_SECRET": "TODO",
+        "UNAUTH_MGMT_ENDPOINT": "TODO",
+        "UNAUTH_COMMAND_EXEC": "TODO",
+        "UNAUTH_INFO_DISCLOSURE": "TODO",
+        "EGRESS_FIXED_CLOUD_ENDPOINT": "TODO",
+        "EGRESS_PLAINTEXT_CHANNEL": "TODO",
+        "EGRESS_UNREGISTERED_THIRD_PARTY": "TODO"
+      },
+      "A2": {
+        "CRED_DEFAULT_ADMIN_WEB": "TODO",
+        "CRED_DEFAULT_SERVICE_LOGIN": "TODO",
+        "CRED_HARDCODED_SECRET": "TODO",
+        "UNAUTH_MGMT_ENDPOINT": "TODO",
+        "UNAUTH_COMMAND_EXEC": "TODO",
+        "UNAUTH_INFO_DISCLOSURE": "TODO",
+        "EGRESS_FIXED_CLOUD_ENDPOINT": "TODO",
+        "EGRESS_PLAINTEXT_CHANNEL": "TODO",
+        "EGRESS_UNREGISTERED_THIRD_PARTY": "TODO"
+      },
+      "A3": {
+        "CRED_DEFAULT_ADMIN_WEB": "TODO",
+        "CRED_DEFAULT_SERVICE_LOGIN": "TODO",
+        "CRED_HARDCODED_SECRET": "TODO",
+        "UNAUTH_MGMT_ENDPOINT": "TODO",
+        "UNAUTH_COMMAND_EXEC": "TODO",
+        "UNAUTH_INFO_DISCLOSURE": "TODO",
+        "EGRESS_FIXED_CLOUD_ENDPOINT": "TODO",
+        "EGRESS_PLAINTEXT_CHANNEL": "TODO",
+        "EGRESS_UNREGISTERED_THIRD_PARTY": "TODO"
+      }
+    },
+    "B": {
+      "A1": {
+        "CRED_DEFAULT_ADMIN_WEB": "TODO",
+        "CRED_DEFAULT_SERVICE_LOGIN": "TODO",
+        "CRED_HARDCODED_SECRET": "TODO",
+        "UNAUTH_MGMT_ENDPOINT": "TODO",
+        "UNAUTH_COMMAND_EXEC": "TODO",
+        "UNAUTH_INFO_DISCLOSURE": "TODO",
+        "EGRESS_FIXED_CLOUD_ENDPOINT": "TODO",
+        "EGRESS_PLAINTEXT_CHANNEL": "TODO",
+        "EGRESS_UNREGISTERED_THIRD_PARTY": "TODO"
+      },
+      "A2": {
+        "CRED_DEFAULT_ADMIN_WEB": "TODO",
+        "CRED_DEFAULT_SERVICE_LOGIN": "TODO",
+        "CRED_HARDCODED_SECRET": "TODO",
+        "UNAUTH_MGMT_ENDPOINT": "TODO",
+        "UNAUTH_COMMAND_EXEC": "TODO",
+        "UNAUTH_INFO_DISCLOSURE": "TODO",
+        "EGRESS_FIXED_CLOUD_ENDPOINT": "TODO",
+        "EGRESS_PLAINTEXT_CHANNEL": "TODO",
+        "EGRESS_UNREGISTERED_THIRD_PARTY": "TODO"
+      },
+      "A3": {
+        "CRED_DEFAULT_ADMIN_WEB": "TODO",
+        "CRED_DEFAULT_SERVICE_LOGIN": "TODO",
+        "CRED_HARDCODED_SECRET": "TODO",
+        "UNAUTH_MGMT_ENDPOINT": "TODO",
+        "UNAUTH_COMMAND_EXEC": "TODO",
+        "UNAUTH_INFO_DISCLOSURE": "TODO",
+        "EGRESS_FIXED_CLOUD_ENDPOINT": "TODO",
+        "EGRESS_PLAINTEXT_CHANNEL": "TODO",
+        "EGRESS_UNREGISTERED_THIRD_PARTY": "TODO"
+      }
+    }
+  },
+  "decisions": [],
+  "policy_replay": [],
+  "policies": []
+}

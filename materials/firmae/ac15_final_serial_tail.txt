@@ -1,0 +1,84 @@
+**cfmd recv segv signals and reboot the system**
+************************************************
+
+************************************************
+**cfmd recv segv signals and reboot the system**
+************************************************
+
+************************************************
+**cfmd recv segv signals and reboot the system**
+************************************************
+
+************************************************
+**cfmd recv segv signals and reboot the system**
+************************************************
+
+************************************************
+**cfmd recv segv signals and reboot the system**
+************************************************
+
+************************************************
+**cfmd recv segv signals and reboot the system**
+************************************************
+
+************************************************
+**cfmd recv segv signals and reboot the system**
+************************************************
+
+************************************************
+**cfmd recv segv signals and reboot the system**
+************************************************
+
+************************************************
+**cfmd recv segv signals and reboot the system**
+************************************************
+
+************************************************
+**cfmd recv segv signals and reboot the system**
+************************************************
+
+************************************************
+**cfmd recv segv signals and reboot the system**
+************************************************
+
+************************************************
+**cfmd recv segv signals and reboot the system**
+************************************************
+
+************************************************
+**cfmd recv segv signals and reboot the system**
+************************************************
+
+************************************************
+**cfmd recv segv signals and reboot the system**
+************************************************
+
+************************************************
+**cfmd recv segv signals and reboot the system**
+************************************************
+/usr/sbin/wl: wl driver adapter not found
+[    3.528970] firmadyne: sys_socket[PID: 1 (init)]: family:1, type:2, protocol:0
+[    3.529385] firmadyne: sys_socket[PID: 1 (init)]: family:1, type:1, protocol:0
+
+The system is going down NOW!
+[    3.540418] firmadyne: sys_socket[PID: 1 (init)]: family:1, type:2, protocol:0
+[    3.540761] firmadyne: sys_socket[PID: 1 (init)]: family:1, type:1, protocol:0
+
+Sent SIGTERM to all processes
+cfmd -> Term_Sig_entry [15]...
+
+Sent SIGKILL to all processes
+
+Requesting system reboot
+[    5.558044] firmadyne: sys_reboot[PID: 173 (init)]: magic1:fee1dead, magic2:28121969, cmd:1234567
+[    5.558667] firmadyne: sys_reboot: removed CAP_SYS_BOOT, starting init...
+[    6.406063] cfg80211: Calling CRDA to update world regulatory domain
+[    9.556364] cfg80211: Calling CRDA to update world regulatory domain
+[   12.705892] cfg80211: Calling CRDA to update world regulatory domain
+[   15.856057] cfg80211: Calling CRDA to update world regulatory domain
+[   19.006047] cfg80211: Calling CRDA to update world regulatory domain
+[   22.156074] cfg80211: Calling CRDA to update world regulatory domain
+[   25.306029] cfg80211: Calling CRDA to update world regulatory domain
+[   28.456105] cfg80211: Calling CRDA to update world regulatory domain
+[   31.605718] cfg80211: Calling CRDA to update world regulatory domain
+[   34.756198] cfg80211: Exceeded CRDA call max attempts. Not calling CRDA

@@ -1,0 +1,22 @@
+2026-11-20T09:43:56+08:00
+CMD: ./run.sh -c tenda /home/rmua/t12/ac15/US_AC15V1.0BR_V15.03.05.18_multi_TD01.bin
+BIN: 8727e3470dd2280cd2bc0a75c5f9fccc93082df855a60c551d2e06cd234c7025  /home/rmua/t12/ac15/US_AC15V1.0BR_V15.03.05.18_multi_TD01.bin
+TOOLS: fdisk=/usr/sbin/fdisk busybox=/usr/bin/busybox bash-static=/usr/bin/bash-static
+[*] /home/rmua/t12/ac15/US_AC15V1.0BR_V15.03.05.18_multi_TD01.bin emulation start!!!
+[*] Extract done!!!
+[+] get architecture done!!!
+[+] Start emulation!!!
+
+[IID] 1
+[[33mMODE[0m] check
+mke2fs 1.46.5 (30-Dec-2021)
+mknod: /dev/console: File exists
+mknod: /dev/ttyS0: File exists
+mknod: /dev/ttyS1: File exists
+e2fsck 1.46.5 (30-Dec-2021)
+[*] infer network start!!!
+[[32m+[0m] Network reachable on 192.168.0.1!
+[*] cleanup
+======================================
+EXIT=0
+2026-11-20T10:21:53+08:00

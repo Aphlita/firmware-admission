@@ -1,0 +1,48 @@
+[*] Infer test: /init (symbolic link to bin/busybox)
+[*] web service: None
+Running firmware 1: terminating after 360 secs...
+qemu-system-arm: terminating on signal 2 from pid 9322 (timeout)
+Infer NVRAM default file!
+
+[*] Interfaces: []
+[*] ports: []
+[*] networkInfo: []
+[*] no network interface: bring up default network
+[*] filter network info: [('192.168.0.1', 'eth0', None, None, 'br0')]
+===== Check inferred emulation start =====
+[*] Inferred network: terminating after 360 secs...
+[*] Waiting web service... from 192.168.0.1: terminating after 360 secs...
+qemu-system-arm: terminating on signal 15 from pid 13413 ()
+=====  Check inferred emulation end  =====
+[*] Infer test: /etc_ro/init.d/rcS (POSIX shell script, ASCII text executable)
+[*] web service: None
+Running firmware 1: terminating after 360 secs...
+qemu-system-arm: terminating on signal 2 from pid 13496 (timeout)
+Infer NVRAM default file!
+
+[*] Interfaces: []
+[*] ports: []
+[*] networkInfo: []
+[*] no network interface: bring up default network
+[*] filter network info: [('192.168.0.1', 'eth0', None, None, 'br0')]
+===== Check inferred emulation start =====
+[*] Inferred network: terminating after 360 secs...
+[*] Waiting web service... from 192.168.0.1: terminating after 360 secs...
+qemu-system-arm: terminating on signal 15 from pid 14203 (/bin/bash)
+=====  Check inferred emulation end  =====
+[*] Infer test: /firmadyne/preInit.sh (a /firmadyne/sh script, ASCII text executable)
+[*] web service: None
+Running firmware 1: terminating after 360 secs...
+qemu-system-arm: terminating on signal 2 from pid 14286 (timeout)
+Infer NVRAM default file!
+
+[*] Interfaces: []
+[*] ports: []
+[*] networkInfo: []
+[*] no network interface: bring up default network
+[*] filter network info: [('192.168.0.1', 'eth0', None, None, 'br0')]
+===== Check inferred emulation start =====
+[*] Inferred network: terminating after 360 secs...
+[*] Waiting web service... from 192.168.0.1: terminating after 360 secs...
+qemu-system-arm: terminating on signal 15 from pid 14961 ()
+=====  Check inferred emulation end  =====

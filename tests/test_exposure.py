@@ -2,9 +2,12 @@
 
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 import pytest
 
-from src.exposure import CheckSpec, assess_exposure, load_checks
+from src.exposure import CheckSpec, assess_exposure, load_checks, main
 from src.schema import Evidence, EvidenceLevel, Verdict
 
 CHECKS = [
@@ -160,3 +163,34 @@ def test_load_checks_reads_all_nine_baseline_checks() -> None:
         "UNAUTH_MGMT_ENDPOINT",
         "EGRESS_FIXED_CLOUD_ENDPOINT",
     }
+
+
+def test_main_accepts_explicit_outcomes_for_pass_sample(tmp_path: Path) -> None:
+    evidence_path = tmp_path / "evidence.json"
+    outcomes_path = tmp_path / "outcomes.json"
+    output = tmp_path / "decision.json"
+    evidence_path.write_text(
+        json.dumps({"firmware_id": "CLEAN", "evidence": []}, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    outcomes = {check.code: "clear" for check in load_checks()}
+    outcomes_path.write_text(json.dumps(outcomes, ensure_ascii=False), encoding="utf-8")
+
+    assert (
+        main(
+            [
+                str(evidence_path),
+                "--firmware-id",
+                "CLEAN",
+                "--outcomes",
+                str(outcomes_path),
+                "--output",
+                str(output),
+            ]
+        )
+        == 0
+    )
+    payload = json.loads(output.read_text(encoding="utf-8"))
+    assert payload["verdict"] == "pass"
+    assert payload["exposure"] == pytest.approx(0.0)
+    assert payload["assurance"] == pytest.approx(1.0)

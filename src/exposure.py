@@ -379,12 +379,20 @@ def _load_evidence_file(path: str | Path) -> tuple[list[Evidence], str | None]:
     return evidence, firmware_id
 
 
+def _load_outcomes(path: str | Path) -> dict[str, str]:
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        raise ValueError("outcomes JSON 根节点必须是对象")
+    return {str(key): str(value) for key, value in data.items()}
+
+
 def main(argv: list[str] | None = None) -> int:
     """CLI：读取 evidence JSON，输出敞口 + 三态判定。"""
     parser = argparse.ArgumentParser(description="敞口与三态判定（T2-1）")
     parser.add_argument("evidence", help="src.evidence 产出的 JSON")
     parser.add_argument("--firmware-id", default=None)
     parser.add_argument("--checks", default=str(BASELINE_PATH))
+    parser.add_argument("--outcomes", default=None, help="check_code -> found/clear/not_tested 的 JSON")
     parser.add_argument("--output", default=None)
     parser.add_argument("--pass-max", type=float, default=0.2)
     parser.add_argument("--conditional-max", type=float, default=0.6)
@@ -394,9 +402,11 @@ def main(argv: list[str] | None = None) -> int:
     try:
         evidence, source_id = _load_evidence_file(args.evidence)
         firmware_id = args.firmware_id or source_id or Path(args.evidence).stem
+        outcomes = _load_outcomes(args.outcomes) if args.outcomes else None
         result = assess_exposure(
             evidence,
             load_checks(args.checks),
+            outcomes,
             pass_max=args.pass_max,
             conditional_max=args.conditional_max,
             assurance_min=args.assurance_min,
