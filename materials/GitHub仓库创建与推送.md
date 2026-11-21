@@ -1,9 +1,37 @@
 # GitHub 仓库创建与推送
 
+## 0. 2026-11-21 连通性复测
+
+| 测试 | 结果 |
+|---|---|
+| DNS `github.com` | 解析到 `20.205.243.166` |
+| TCP `github.com:443` | 通 |
+| `curl --noproxy '*' https://github.com` | **200 OK** |
+| `git ls-remote https://github.com/git/git.git` | 能拿到 refs（GitHub 直连可用） |
+| `https://api.github.com/` | **200** |
+| `https://raw.githubusercontent.com/...` | 超时（不影响 `git push`） |
+| 当前环境代理 `127.0.0.1:7892` | 对本机 git/curl 不稳定，需绕过 |
+| `git ls-remote https://github.com/langqwu/firmware-admission.git` | `Repository not found`（仓库还不存在） |
+
+结论：**GitHub 直连是通的**，之前失败主要是环境代理 `127.0.0.1:7892` 不稳定。
+在 PowerShell 里先清掉代理变量，再执行 git：
+
+```powershell
+$env:HTTP_PROXY=''
+$env:HTTPS_PROXY=''
+$env:ALL_PROXY=''
+$env:NO_PROXY='github.com,api.github.com'
+```
+
+当前仍然缺的是 **GitHub 登录/授权**：本机没有 `gh`，也没有 `GH_TOKEN`/`GITHUB_TOKEN`，
+所以我不能代替你创建远程仓库或 push；需要你在能登录 GitHub 的浏览器/凭据环境里完成一次。
+
+---
+
 > 当前状态（2026-11-21）：
 > - 本地 `firmware-admission` 已有完整 git 历史，但 **`git remote -v` 为空**，没有 GitHub 远程仓库；
 > - 本机 **没有安装 `gh`**，也没有设置 `GH_TOKEN` / `GITHUB_TOKEN`；
-> - 直接访问 `github.com:443` 在当前环境被代理/网络拦截，无法由我直接创建或 push。
+> - 直接访问 `github.com:443` 已复测可用，但默认代理（`127.0.0.1:7892`）不稳定，需要 bypass。
 > 因此仓库需要你在能访问 GitHub 的机器/浏览器上创建一次，然后 `git push`。
 
 ---
