@@ -3,10 +3,14 @@
 ## 0. 2026-11-21 建库/推送结果
 
 - 仓库已创建：<https://github.com/langqwu/firmware-admission>
+- 可见性：**public**（`private=false`，已按队友可读需求设为公开）
 - 本地 remote：`origin https://github.com/langqwu/firmware-admission.git`
 - 分支：`main -> origin/main`
-- 已推送提交：`d37e6b2`（`[dsh] docs: GitHub 凭据安全与撤销步骤`）
+- 已推送提交：`b6d78ee`（`[dsh] docs: 记录 GitHub 仓库已创建与远程地址`）
 - 验证：`git ls-remote --heads origin` 返回 `refs/heads/main`
+
+> ⚠️ 仓库现在是公开的，**所有历史提交都可见**。不要把 `data/firmware/`、`sources/`、
+> token、密码或个人信息提交进去；`data/` 和 `sources/` 已经在本地忽略/未跟踪。
 
 > 说明：截图里 `git remote add origin ...` 报 `remote origin already exists`，是因为之前已经加过一个
 > **带占位符**的 origin（`https://github.com/<你的GitHub用户名>/...`），push 才会 400。
@@ -69,7 +73,7 @@ Git Credential Manager 已保存 `langqwu` 的登录态。
 
 1. 打开 <https://github.com/new>；
 2. Repository name：`firmware-admission`；
-3. 选择 **Private**（固件/竞赛材料，不建议公开）；
+3. 选择 **Public**（当前仓库已按需求公开；如后续加入敏感材料，可再改回 Private）；
 4. **不要**勾选 “Add a README file / .gitignore / license”（本地已有历史，勾了会增加一次合并）；
 5. 点 Create repository。
 
@@ -127,7 +131,7 @@ git ls-remote origin
 winget install --id GitHub.cli -e
 gh auth login
 cd E:\dsh_talking\firmware-admission
-gh repo create firmware-admission --private --source=. --remote=origin --push
+gh repo create firmware-admission --public --source=. --remote=origin --push
 ```
 
 `gh auth login` 会要求浏览器/设备码登录；这一步必须由你完成，我无法代填账号密码。
@@ -180,4 +184,4 @@ git remote set-url origin https://github.com/<用户名>/firmware-admission.git
 git push -u origin main
 ```
 
-不要为了绕过网络把仓库公开或上传到不明网盘；竞赛材料优先私有仓库。
+不要为了绕过网络把仓库上传到不明网盘；当前仓库已公开，若后续加入敏感材料，先在 GitHub 改回 Private。
