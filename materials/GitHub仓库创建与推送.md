@@ -1,6 +1,18 @@
 # GitHub 仓库创建与推送
 
-## 0. 2026-11-21 连通性复测
+## 0. 2026-11-21 建库/推送结果
+
+- 仓库已创建：<https://github.com/langqwu/firmware-admission>
+- 本地 remote：`origin https://github.com/langqwu/firmware-admission.git`
+- 分支：`main -> origin/main`
+- 已推送提交：`d37e6b2`（`[dsh] docs: GitHub 凭据安全与撤销步骤`）
+- 验证：`git ls-remote --heads origin` 返回 `refs/heads/main`
+
+> 说明：截图里 `git remote add origin ...` 报 `remote origin already exists`，是因为之前已经加过一个
+> **带占位符**的 origin（`https://github.com/<你的GitHub用户名>/...`），push 才会 400。
+> 正确做法是 `git remote set-url origin https://github.com/langqwu/firmware-admission.git`。
+
+## 0.1 2026-11-21 连通性复测
 
 | 测试 | 结果 |
 |---|---|
@@ -11,7 +23,7 @@
 | `https://api.github.com/` | **200** |
 | `https://raw.githubusercontent.com/...` | 超时（不影响 `git push`） |
 | 当前环境代理 `127.0.0.1:7892` | 对本机 git/curl 不稳定，需绕过 |
-| `git ls-remote https://github.com/langqwu/firmware-admission.git` | `Repository not found`（仓库还不存在） |
+| `git ls-remote https://github.com/langqwu/firmware-admission.git` | 已存在；`main` 已推送 |
 
 结论：**GitHub 直连是通的**，之前失败主要是环境代理 `127.0.0.1:7892` 不稳定。
 在 PowerShell 里先清掉代理变量，再执行 git：
@@ -23,9 +35,8 @@ $env:ALL_PROXY=''
 $env:NO_PROXY='github.com,api.github.com'
 ```
 
-当前仍然缺的是 **GitHub 登录/授权**：本机没有 `gh`，也没有 `GH_TOKEN`/`GITHUB_TOKEN`，
-但我检测到 Git Credential Manager 已保存 `langqwu` 的凭据（所以本机可能已有登录态）。
-我不能代替你创建远程仓库或 push；需要你在能登录 GitHub 的浏览器/凭据环境里完成一次。
+当前本机仍没有 `gh`；后续推送直接用 `git push` 即可。
+Git Credential Manager 已保存 `langqwu` 的登录态。
 
 > ⚠️ **凭据安全**：不要用 `git credential fill` 把输出直接打印到终端或聊天里。
 > 如果凭据内容曾经出现在屏幕/日志/聊天中，立即到 GitHub
