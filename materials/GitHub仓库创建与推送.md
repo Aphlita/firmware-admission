@@ -24,7 +24,23 @@ $env:NO_PROXY='github.com,api.github.com'
 ```
 
 当前仍然缺的是 **GitHub 登录/授权**：本机没有 `gh`，也没有 `GH_TOKEN`/`GITHUB_TOKEN`，
-所以我不能代替你创建远程仓库或 push；需要你在能登录 GitHub 的浏览器/凭据环境里完成一次。
+但我检测到 Git Credential Manager 已保存 `langqwu` 的凭据（所以本机可能已有登录态）。
+我不能代替你创建远程仓库或 push；需要你在能登录 GitHub 的浏览器/凭据环境里完成一次。
+
+> ⚠️ **凭据安全**：不要用 `git credential fill` 把输出直接打印到终端或聊天里。
+> 如果凭据内容曾经出现在屏幕/日志/聊天中，立即到 GitHub
+> `Settings → Applications → Authorized OAuth Apps`（或 Personal access tokens）撤销，
+> 然后重新登录。撤销后可清掉本地缓存：
+>
+> ```powershell
+> @"
+> protocol=https
+> host=github.com
+>
+> "@ | git credential reject
+> ```
+>
+> 重新登录后，Git Credential Manager 会重新弹窗；不要把 token 发给任何人。
 
 ---
 
