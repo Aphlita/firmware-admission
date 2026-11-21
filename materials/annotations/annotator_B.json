@@ -1,5 +1,5 @@
 {
-  "_note": "只填 B 的标注；不要看对方的文件。把 TODO 改成 found/clear/not_tested。",
+  "_note": "B = 苏同学。只填 B 的标注；不要看王同学的文件、machine_prelabel_A.json 或 evidence_audit.md。把 TODO 改成 found/clear/not_tested。",
   "annotators": {
     "B": {
       "A1": {

@@ -1,5 +1,5 @@
 {
-  "_note": "机器初标（evidence-derived）：有对应 check_code 证据的填 found，其余 not_tested；没有 clear，因为目前没有逐项 runtime test 记录。A 必须逐条核验 raw_ref 后才算人工确认；B 必须独立标注。",
+  "_note": "A = 王同学。机器初标（evidence-derived）：有对应 check_code 证据的填 found，其余 not_tested；没有 clear，因为目前没有逐项 runtime test 记录。A 必须逐条核验 raw_ref 后才算人工确认；B 必须独立标注。",
   "annotators": {
     "A": {
       "A1": {
